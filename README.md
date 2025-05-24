@@ -14,8 +14,11 @@ Tempo de desenvolvimento: Aproximadamente 12 horas
 
 
 Entregues:
+
 1 - Estrutura de projeto com ThemeProvider(Dark and Ligth Theme), Rotes, API config do `themoviedb`
+
 2 - 3 telas (Home, Category e Details).
+
 3 - Componentes, Cards e Carroussel (Slick)
 
 
