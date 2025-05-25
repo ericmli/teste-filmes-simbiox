@@ -4,14 +4,13 @@ import * as Styled from './styles';
 import ThemeToggle from '../ThemeToggle';
 import logo from '../../assets/simhioxlogo.png';
 import { Menu, X } from 'lucide-react';
+import { useAuthContext } from '../../providers/AuthProvider';
 
 export default function Navbar() {
   const navigate = useNavigate();
+  const { token, logout } = useAuthContext()
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const handleLogout = () => {
-    navigate('/login');
-  };
+  const name = localStorage.getItem('nameUser')
 
   return (
     <Styled.NavbarContainer>
@@ -38,7 +37,12 @@ export default function Navbar() {
 
       <Styled.NavActions>
         <ThemeToggle />
-        <Styled.LogoutButton onClick={handleLogout}>Sair</Styled.LogoutButton>
+        {token ?
+          <>
+            <p>Olá, {name}</p>
+            <Styled.LogoutButton onClick={logout}>Sair</Styled.LogoutButton>
+          </> :
+          <Styled.LogoutButton onClick={() => navigate('/auth')}>Entrar</Styled.LogoutButton>}
       </Styled.NavActions>
     </Styled.NavbarContainer>
   );
