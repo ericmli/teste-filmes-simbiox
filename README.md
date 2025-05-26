@@ -1,9 +1,14 @@
-# React + TypeScript + Vite
+# `Front-End` React + TypeScript
+# `Back-End` Docker + Spring Boot
 
 
 Projeto de filmes criado para teste de Engenheiro de Software - Simbiox.
 
 Para instalar, é necessário utilzar o `npm install` e inicializar `npm run dev`.
+
+Para o backend, no Windows; javasimbioxfilms e execute o comando: *`docker compose up --build`*
+
+`Importante`: API KEY do TMDB já esta inclusa no Docker, como é pública deixei disponível sem precisar do .env!
 
 
 ## Resumo de criação - `Primeiro Commit`:
@@ -47,3 +52,13 @@ Entregues:
 3 - Front-End já registrando e fazendo login de forma segura.
 
 *Proximos Passos*: Fazer rotas para consumir da API `themoviedb` diretamente do back-end local, e trazendo rotas seguras.
+
+## Resumo de criação - `Oitavo Commit`:
+
+Configurei as rotas do TMDB para serem consumidas pelo local.
+
+Entregues:
+
+Consumo de filmes localmente.
+
+Tempo de desenvolvimento: Aproximadamente 2h
