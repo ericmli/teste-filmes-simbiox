@@ -29,6 +29,7 @@ services:
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
       SPRING_JPA_SHOW_SQL: true
       SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.MySQL8Dialect
+      TMDB_API_KEY: e70ed1ec2576ea3f6fd6c61c25a56a6b
 
 volumes:
   mysql_data:

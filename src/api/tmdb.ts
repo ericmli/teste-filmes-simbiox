@@ -1,69 +1,47 @@
-import axios from "axios";
+import axios from "axios"
 
-const key = import.meta.env.VITE_TMDB_KEY
+const api = axios.create({
+  baseURL: "http://localhost:8080/tmdb",
+})
 
 export const getMovies = (page = 1, type = "movie", category = "popular") => {
-  return axios.get(`https://api.themoviedb.org/3/${type}/${category}`, {
-    params: {
-      api_key: key,
-      language: "pt-BR",
-      page: page,
-    },
+  return api.get(`/movies`, {
+    params: { page, type, category }
   })
 }
 
 export const getTrending = (timeWindow = "week") => {
-  return axios.get(`https://api.themoviedb.org/3/trending/all/${timeWindow}`, {
-    params: {
-      api_key: key,
-      language: "pt-BR",
-    },
+  return api.get(`/trending`, {
+    params: { timeWindow }
   })
 }
 
 export const getDetails = (id: number, type = "movie") => {
-  return axios.get(`https://api.themoviedb.org/3/${type}/${id}`, {
-    params: {
-      api_key: key,
-      language: "pt-BR",
-    },
+  return api.get(`/details`, {
+    params: { id, type }
   })
 }
 
 export const getCredits = (id: number, type = "movie") => {
-  return axios.get(`https://api.themoviedb.org/3/${type}/${id}/credits`, {
-    params: {
-      api_key: key,
-      language: "pt-BR",
-    },
+  return api.get(`/credits`, {
+    params: { id, type }
   })
 }
 
 export const getVideos = (id: number, type = "movie") => {
-  return axios.get(`https://api.themoviedb.org/3/${type}/${id}/videos`, {
-    params: {
-      api_key: key,
-      language: "pt-BR",
-    },
+  return api.get(`/videos`, {
+    params: { id, type }
   })
 }
 
 export const getRecommendations = (id: number, type = "movie") => {
-  return axios.get(`https://api.themoviedb.org/3/${type}/${id}/recommendations`, {
-    params: {
-      api_key: key,
-      language: "pt-BR",
-    },
+  return api.get(`/recommendations`, {
+    params: { id, type }
   })
 }
 
 export const searchMulti = (query: string, page = 1) => {
-  return axios.get("https://api.themoviedb.org/3/search/multi", {
-    params: {
-      api_key: key,
-      language: "pt-BR",
-      query,
-      page,
-    },
+  return api.get(`/search`, {
+    params: { query, page }
   })
 }

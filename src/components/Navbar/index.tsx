@@ -27,7 +27,7 @@ export default function Navbar() {
         <Link to="/home">
           <Styled.NavLink>Início</Styled.NavLink>
         </Link>
-        <Link to="/category/movies">
+        <Link to="/category/movie">
           <Styled.NavLink>Filmes</Styled.NavLink>
         </Link>
         <Link to="/category/series">

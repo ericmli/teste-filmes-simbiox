@@ -35,8 +35,14 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
-                        .anyRequest().authenticated()
-                )
+                        .requestMatchers(HttpMethod.GET, "/tmdb/movies/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/tmdb/trending/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/tmdb/details/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/tmdb/credits/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/tmdb/videos/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/tmdb/recommendations/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/tmdb/search/**").permitAll()
+                        .anyRequest().authenticated())
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
@@ -47,7 +53,8 @@ public class SecurityConfig {
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
+            throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
 }
