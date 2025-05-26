@@ -17,28 +17,20 @@ export const getTrending = (timeWindow = "week") => {
 }
 
 export const getDetails = (id: number, type = "movie") => {
-  return api.get(`/details`, {
-    params: { id, type }
-  })
-}
+  return api.get(`/details/${type}/${id}`);
+};
 
 export const getCredits = (id: number, type = "movie") => {
-  return api.get(`/credits`, {
-    params: { id, type }
-  })
-}
+  return api.get(`/credits/${type}/${id}`);
+};
 
 export const getVideos = (id: number, type = "movie") => {
-  return api.get(`/videos`, {
-    params: { id, type }
-  })
-}
+  return api.get(`/videos/${type}/${id}`);
+};
 
 export const getRecommendations = (id: number, type = "movie") => {
-  return api.get(`/recommendations`, {
-    params: { id, type }
-  })
-}
+  return api.get(`/recommendations/${type}/${id}`);
+};
 
 export const searchMulti = (query: string, page = 1) => {
   return api.get(`/search`, {

@@ -55,7 +55,6 @@ export const Home = () => {
     setIsLoadingFeatured(true)
     getTrending()
       .then((response) => {
-        console.log(response);
         
         const filteredResults = response.data.results
           .filter((item: any) => item.backdrop_path && item.overview && item.overview.length > 100)
@@ -191,12 +190,6 @@ export const Home = () => {
               <Styled.MetadataItem>{currentFeatured.year}</Styled.MetadataItem>
               <Styled.MetadataItem>{currentFeatured.duration}</Styled.MetadataItem>
             </Styled.HeroMetadata>
-
-            <Styled.GenreContainer>
-              {currentFeatured.genre.map((g) => (
-                <Styled.GenreBadge key={g}>{g}</Styled.GenreBadge>
-              ))}
-            </Styled.GenreContainer>
 
             <Styled.HeroDescription>{currentFeatured.description.slice(0, 300)}</Styled.HeroDescription>
 

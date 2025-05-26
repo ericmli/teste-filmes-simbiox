@@ -86,16 +86,13 @@ export const Details = () => {
     const fetchData = async () => {
       setIsLoading(true)
       try {
-        // Buscar detalhes
         const detailsResponse = await getDetails(Number.parseInt(id), mediaType)
         setDetails(detailsResponse.data)
 
-        // Buscar elenco e equipe
         const creditsResponse = await getCredits(Number.parseInt(id), mediaType)
         setCast(creditsResponse.data.cast.slice(0, 20))
         setCrew(creditsResponse.data.crew.slice(0, 10))
 
-        // Buscar vídeos
         const videosResponse = await getVideos(Number.parseInt(id), mediaType)
         const trailers = videosResponse.data.results.filter(
           (video: Video) => video.type === "Trailer" && video.site === "YouTube",
@@ -105,7 +102,6 @@ export const Details = () => {
           setSelectedVideo(trailers[0])
         }
 
-        // Buscar recomendações
         const recommendationsResponse = await getRecommendations(Number.parseInt(id), mediaType)
         setRecommendations(recommendationsResponse.data.results.slice(0, 12))
       } catch (error) {
@@ -177,7 +173,7 @@ export const Details = () => {
       </Styled.DetailsContainer>
     )
   }
-
+  console.log(details)
   if (!details) {
     return (
       <Styled.DetailsContainer>
@@ -198,7 +194,6 @@ export const Details = () => {
     <Styled.DetailsContainer>
       <Navbar />
 
-      {/* Hero Section */}
       <Styled.HeroSection>
         <Styled.HeroBackground
           style={{
@@ -250,12 +245,6 @@ export const Details = () => {
                 )}
               </Styled.MetadataContainer>
 
-              <Styled.GenresContainer>
-                {details.genres.map((genre) => (
-                  <Styled.GenreBadge key={genre.id}>{genre.name}</Styled.GenreBadge>
-                ))}
-              </Styled.GenresContainer>
-
               <Styled.Overview>{details.overview}</Styled.Overview>
 
               <Styled.ActionsContainer>
@@ -263,11 +252,6 @@ export const Details = () => {
                   <Play size={20} />
                   <span>Assistir</span>
                 </Styled.PrimaryButton>
-
-                <Styled.SecondaryButton>
-                  <Plus size={20} />
-                  <span>Minha Lista</span>
-                </Styled.SecondaryButton>
 
                 <Styled.IconButton>
                   <Heart size={20} />

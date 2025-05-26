@@ -182,12 +182,6 @@ export const Category = () => {
                       </Styled.MetadataItem>
                     </Styled.OverlayMetadata>
 
-                    <Styled.OverlayGenres>
-                      {item.genre_ids.slice(0, 3).map((genreId) => (
-                        <Styled.GenreBadge key={genreId}>{(genreId)}</Styled.GenreBadge>
-                      ))}
-                    </Styled.OverlayGenres>
-
                     <Styled.OverlayDescription>{item.overview}</Styled.OverlayDescription>
 
                     <Styled.OverlayActions>

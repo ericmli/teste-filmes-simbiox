@@ -24,7 +24,7 @@ export default function Navbar() {
       </Styled.MenuToggle>
 
       <Styled.NavLinks isOpen={menuOpen}>
-        <Link to="/home">
+        <Link to="/">
           <Styled.NavLink>Início</Styled.NavLink>
         </Link>
         <Link to="/category/movie">

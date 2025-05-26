@@ -1,4 +1,4 @@
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom';
 import { Home } from '../pages/Home';
 import { Details } from '../pages/Details';
 import { Category } from '../pages/Category';
@@ -9,6 +9,7 @@ export const App = () => {
     return (
         <BrowserRouter>
             <Routes>
+                <Route path="*" element={<Navigate to="/" replace />}/>
                 <Route path="/auth" element={<Auth />} />
                 <Route
                     path="/"
